@@ -2,8 +2,50 @@ using System;
 
 class Program
 {
-    static void Main(string[] args)
+    
+static void Main(string[] args)
     {
-        Console.WriteLine("Hello Learning03 World!");
+        Fraction f1 = new Fraction();
+        Fraction f2 = new Fraction(5);
+        Fraction f3 = new Fraction(3, 4);
+        Fraction f4 = new Fraction(1, 3);
+
+        Console.WriteLine(f1.GetFractionString());
+        Console.WriteLine(f1.GetDecimalValue());
+
+        Console.WriteLine(f2.GetFractionString());
+        Console.WriteLine(f2.GetDecimalValue());
+
+        Console.WriteLine(f3.GetFractionString());
+        Console.WriteLine(f3.GetDecimalValue());
+
+        Console.WriteLine(f4.GetFractionString());
+        Console.WriteLine(f4.GetDecimalValue());
+        
+        Fraction test = new Fraction();
+
+        test.SetTop(7);
+        test.SetBottom(8);
+
+        Console.WriteLine(test.GetTop());
+        Console.WriteLine(test.GetBottom());
+        Console.WriteLine(test.GetFractionString());
+
+        
+        Fraction randomFraction = new Fraction();
+        Random random = new Random();
+
+        for (int i = 1; i <= 20; i++)
+        {
+            int top = random.Next(1, 100);
+            int bottom = random.Next(1, 100);
+
+            randomFraction.SetTop(top);
+            randomFraction.SetBottom(bottom);
+
+            Console.WriteLine(
+                $"Fraction {i}: string: {randomFraction.GetFractionString()} " +
+                $"Number: {randomFraction.GetDecimalValue()}");
+        }
     }
 }
